@@ -76,6 +76,7 @@ function useRandomBeer() {
     isLoading: !error && !data,
     isError: error,
     isValidating,
+    mutate,
   };
 }
 
