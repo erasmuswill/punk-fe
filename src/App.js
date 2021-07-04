@@ -3,6 +3,7 @@ import { Suspense, useState, createContext } from "react";
 import RandomBeer from "./components/RandomBeer";
 import { Switch } from "antd";
 import { mutate } from "swr";
+import BeerList from "./components/BeerList";
 
 const ShowAlcoholicContext = createContext(true);
 
@@ -17,13 +18,16 @@ function App() {
   return (
     <ShowAlcoholicContext.Provider value={showAlcoholic}>
       <div className="App">
-        <span>
-          <label>
-            Show alcoholic beers
-            <Switch defaultChecked onChange={onAlcoholChange} />
-          </label>
-        </span>
+        <div>
+          <span className="alcohol-toggle">
+            <label>
+              <Switch defaultChecked onChange={onAlcoholChange} />
+              Show alcoholic beers
+            </label>
+          </span>
+        </div>
         <RandomBeer />
+        <BeerList />
       </div>
     </ShowAlcoholicContext.Provider>
   );

@@ -1,0 +1,28 @@
+div.beer-list {
+  padding: 16px;
+  div.beer-item {
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 1fr 8fr 80px;
+    grid-template-rows: 40px 104px;
+    div.image {
+      grid-row-start: 1;
+      grid-row-end: 3;
+      img {
+        margin: 8px auto;
+        display: block;
+      }
+    }
+    div.name {
+      margin: 0px 24px;
+    }
+    div.description {
+      margin: 0px 24px;
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+    span.abv {
+      text-align: right;
+    }
+  }
+}

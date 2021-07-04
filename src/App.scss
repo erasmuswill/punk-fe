@@ -4,3 +4,10 @@ div.App {
   margin: 10px auto;
   max-width: 900px;
 }
+
+span.alcohol-toggle {
+  float: right;
+  label button {
+    margin-right: 8px;
+  }
+}

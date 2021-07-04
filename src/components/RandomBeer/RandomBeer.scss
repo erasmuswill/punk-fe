@@ -2,7 +2,6 @@ div.random-beer {
   min-height: 212px;
   display: flex;
   flex-direction: row;
-  //   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
   align-items: center;
@@ -11,7 +10,7 @@ div.random-beer {
   padding: 16px;
 
   div.title-block {
-    flex-basis: 20%;
+    flex-basis: 10%;
     img {
       margin: 8px auto;
       display: block;
