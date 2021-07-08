@@ -80,12 +80,16 @@ function useRandomBeer() {
   };
 }
 
-function useBeerList(filter = {}) {
+function useBeerList(filter = []) {
   const showAlcoholic = useContext(ShowAlcoholicContext);
+  console.log({ filter });
+
+  const filterObj = {};
+  if (filter.length) Object.assign(filterObj, ...filter);
 
   let { data, error, size, setSize, isValidating } = useSWRInfinite(
     (index) =>
-      `/beers?${queryString.stringify({ ...filter, page: index + 1 })}`,
+      `/beers?${queryString.stringify({ ...filterObj, page: index + 1 })}`,
     {
       fetcher: (url) =>
         axios.get(url).then(({ data }) => {
