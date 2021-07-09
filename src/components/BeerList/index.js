@@ -10,13 +10,7 @@ import Title from "antd/lib/typography/Title";
 
 function BeerList() {
   const [filter, setFilter] = useState([]);
-  const {
-    beers,
-    isLoadingMore,
-    size,
-    setSize,
-    hasNextPage,
-  } = useBeerList(
+  const { beers, isLoadingMore, size, setSize, hasNextPage } = useBeerList(
     filter.map(({ type, value }) => ({
       [type]: value.replaceAll(" ", "_"),
     }))
@@ -75,7 +69,8 @@ function BeerList() {
             },
             beer_name: {
               label: "Beer Name",
-              addable: !filter.filter(({ type }) => type === "beer_name").length,
+              addable: !filter.filter(({ type }) => type === "beer_name")
+                .length,
               component: {
                 component: Textfield,
                 addable: false,
@@ -103,8 +98,8 @@ function BeerList() {
               )
             }
           >
-            {beers.map(({ abv, name, description, image_url }) => (
-              <div className="beer-item">
+            {beers.map(({ abv, name, description, image_url, id }) => (
+              <div className="beer-item" key={id}>
                 <div className="image">
                   <img height="100" src={image_url} alt={`Label for ${name}`} />
                 </div>
