@@ -1,7 +1,7 @@
 import { useBeerList } from "../../api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Criteria from "react-criteria";
-
+import ReadMoreReact from 'read-more-react';
 import "./BeerList.scss";
 import { useState } from "react";
 import Textfield from "./TextField";
@@ -112,7 +112,8 @@ function BeerList() {
                   <h3>{name}</h3>
                 </div>
                 <span className="abv">{abv}%</span>
-                <div className="description">{description}</div>
+                <div className="description">
+                  <ReadMoreReact text={description} min={300} ideal={310} max={320}/></div>
               </div>
             ))}
           </InfiniteScroll>

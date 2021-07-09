@@ -4,7 +4,8 @@ div.beer-list {
     margin-bottom: 12px;
     display: grid;
     grid-template-columns: 1fr 8fr 80px;
-    grid-template-rows: 40px 104px;
+    grid-template-rows: 40px auto;
+    min-height: 144px;
     div.image {
       grid-row-start: 1;
       grid-row-end: 3;
