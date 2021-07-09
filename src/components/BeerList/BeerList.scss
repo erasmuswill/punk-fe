@@ -16,6 +16,9 @@ div.beer-list {
     }
     div.name {
       margin: 0px 24px;
+      h3 {
+        color: #1890ff;
+      }
     }
     div.description {
       margin: 0px 24px;
@@ -24,6 +27,16 @@ div.beer-list {
     }
     span.abv {
       text-align: right;
+      color: #a9a9a9;
     }
+  }
+}
+.beer-list-filters {
+  margin: 8px;
+  padding: 8px 16px;
+  box-shadow: 1px 1px 6px 0px rgba(150, 170, 180, 0.5);
+  border-radius: 12px;
+  > div > div {
+    box-shadow: none;
   }
 }

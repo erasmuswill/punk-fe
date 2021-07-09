@@ -4,6 +4,7 @@ import RandomBeer from "./components/RandomBeer";
 import { Switch } from "antd";
 import { mutate } from "swr";
 import BeerList from "./components/BeerList";
+import Title from "antd/lib/typography/Title";
 
 const ShowAlcoholicContext = createContext(true);
 
@@ -18,7 +19,7 @@ function App() {
   return (
     <ShowAlcoholicContext.Provider value={showAlcoholic}>
       <div className="App">
-        <div>
+        <div style={{ height: "30px" }}>
           <span className="alcohol-toggle">
             <label>
               <Switch defaultChecked onChange={onAlcoholChange} />
@@ -27,6 +28,7 @@ function App() {
           </span>
         </div>
         <RandomBeer />
+        <Title>All beer</Title>
         <BeerList />
       </div>
     </ShowAlcoholicContext.Provider>

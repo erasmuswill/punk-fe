@@ -1,11 +1,12 @@
 import { useBeerList } from "../../api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Criteria from "react-criteria";
-import ReadMoreReact from 'read-more-react';
+import ReadMoreReact from "read-more-react";
 import "./BeerList.scss";
 import { useState } from "react";
 import Textfield from "./TextField";
 import { Empty } from "antd";
+import Title from "antd/lib/typography/Title";
 
 function BeerList() {
   const [filter, setFilter] = useState([]);
@@ -26,6 +27,7 @@ function BeerList() {
   return (
     <>
       <div className="beer-list-filters">
+        <Title level={2}>Filters</Title>
         <Criteria
           data={filter}
           onChange={setFilter}
@@ -113,7 +115,13 @@ function BeerList() {
                 </div>
                 <span className="abv">{abv}%</span>
                 <div className="description">
-                  <ReadMoreReact text={description} min={300} ideal={310} max={320}/></div>
+                  <ReadMoreReact
+                    text={description}
+                    min={300}
+                    ideal={310}
+                    max={320}
+                  />
+                </div>
               </div>
             ))}
           </InfiniteScroll>
