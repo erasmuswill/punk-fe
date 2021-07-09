@@ -44,7 +44,7 @@ function Textfield(props) {
     (ev) => {
       if (typeof onChangeProp !== "function") return;
       if (type === "date") {onChangeProp(ev.format("MM-YYYY")); setDate(ev)}
-      else onChangeProp(ev.target.value);
+      else onChangeProp(ev.target.value.replace(/[^a-zA-Z0-9-\s]/,''));
     },
     [onChangeProp]
   );
