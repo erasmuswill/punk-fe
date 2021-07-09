@@ -106,7 +106,7 @@ function BeerList() {
                 <div className="name">
                   <h3>{name}</h3>
                 </div>
-                <span className="abv">{abv}%</span>
+                <span className="abv">{abv}% alcohol</span>
                 <div className="description">
                   <ReadMoreReact
                     text={description}
