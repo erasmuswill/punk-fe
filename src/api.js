@@ -57,9 +57,7 @@ function firstIndex(arr) {
 }
 
 function useBeer(id) {
-  const { data, error, isValidating, mutate } = useSWR(
-    id ? `/beers/${id}` : null
-  );
+  const { data, error } = useSWR(id ? `/beers/${id}` : null);
 
   return {
     beer: data[0],

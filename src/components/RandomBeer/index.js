@@ -14,7 +14,7 @@ export default function RandomBeer() {
     <div className="random-beer">
       <div className="title-block">
         <h3>{name}</h3>
-        <img height="100" src={image_url} />
+        <img height="100" src={image_url} alt={`Label for ${name}`} />
       </div>
       <div className="label-block">{description}</div>
       <div className="cta-block">

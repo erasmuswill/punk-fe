@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import { createUseStyles } from "react-jss";
 import { useTheme } from "react-criteria";
 import { DatePicker, Input } from "antd";
-import moment from 'moment';
 
 const useStyles = createUseStyles({
   rootGutterBottom: {
@@ -46,7 +45,7 @@ function Textfield(props) {
       if (type === "date") {onChangeProp(ev.format("MM-YYYY")); setDate(ev)}
       else onChangeProp(ev.target.value.replace(/[^a-zA-Z0-9-\s]/,''));
     },
-    [onChangeProp]
+    [onChangeProp, type]
   );
 
   const rootElementClassName = React.useMemo(() => {

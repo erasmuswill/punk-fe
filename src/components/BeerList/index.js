@@ -13,10 +13,8 @@ function BeerList() {
   const {
     beers,
     isLoadingMore,
-    isLoadingInitialData,
     size,
     setSize,
-    isValidating,
     hasNextPage,
   } = useBeerList(
     filter.map(({ type, value }) => ({
@@ -34,7 +32,7 @@ function BeerList() {
           criteria={{
             abv_gt: {
               label: "ABV Greater Than",
-              addable: !filter.filter(({ type }) => type == "abv_gt").length,
+              addable: !filter.filter(({ type }) => type === "abv_gt").length,
               component: {
                 component: Textfield,
                 props: {
@@ -48,7 +46,7 @@ function BeerList() {
             },
             abv_lt: {
               label: "ABV Lower Than",
-              addable: !filter.filter(({ type }) => type == "abv_lt").length,
+              addable: !filter.filter(({ type }) => type === "abv_lt").length,
               component: {
                 component: Textfield,
                 props: {
@@ -62,7 +60,7 @@ function BeerList() {
             },
             brewed_before: {
               label: "Brewed before",
-              addable: !filter.filter(({ type }) => type == "brewed_before")
+              addable: !filter.filter(({ type }) => type === "brewed_before")
                 .length,
               component: {
                 component: Textfield,
@@ -77,7 +75,7 @@ function BeerList() {
             },
             beer_name: {
               label: "Beer Name",
-              addable: !filter.filter(({ type }) => type == "beer_name").length,
+              addable: !filter.filter(({ type }) => type === "beer_name").length,
               component: {
                 component: Textfield,
                 addable: false,
@@ -108,7 +106,7 @@ function BeerList() {
             {beers.map(({ abv, name, description, image_url }) => (
               <div className="beer-item">
                 <div className="image">
-                  <img height="100" src={image_url} />
+                  <img height="100" src={image_url} alt={`Label for ${name}`} />
                 </div>
                 <div className="name">
                   <h3>{name}</h3>

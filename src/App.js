@@ -36,7 +36,7 @@ function App() {
 }
 
 const SuspenseWrappedApp = (props) => (
-  <Suspense fallback={<img height="300" src="/loader-op.gif" />}>
+  <Suspense fallback={<img height="300" src="/loader-op.gif" alt="Loading" />}>
     <App {...props} />
   </Suspense>
 );
