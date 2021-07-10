@@ -34,20 +34,16 @@ const minorFetcher = (url) =>
     return minorFetcher(url);
   });
 
-function useSWR(url, isIdempotent) {
+function useSWR(url) {
   const showAlcoholic = useContext(ShowAlcoholicContext);
   let config = {
     suspense: true,
     loadingTimeout: 1500,
+    dedupingInterval: 100,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
     fetcher: !showAlcoholic && url === "/beers/random" ? minorFetcher : fetcher,
   };
-  if (!isIdempotent)
-    config = {
-      ...config,
-      dedupingInterval: 100,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    };
   return swr(url, config);
 }
 
@@ -60,9 +56,9 @@ function useBeer(id) {
   const { data, error } = useSWR(id ? `/beers/${id}` : null);
 
   return {
-    beer: data[0],
+    beer: firstIndex(data),
     isLoading: !error && !data,
-    isError: error,
+    error: error,
   };
 }
 
@@ -72,7 +68,7 @@ function useRandomBeer() {
   return {
     beer: firstIndex(data),
     isLoading: !error && !data,
-    isError: error,
+    error,
     isValidating,
     mutate,
   };
@@ -80,7 +76,6 @@ function useRandomBeer() {
 
 function useBeerList(filter = []) {
   const showAlcoholic = useContext(ShowAlcoholicContext);
-  console.log({ filter });
 
   const filterObj = {};
   if (filter.length) Object.assign(filterObj, ...filter);
@@ -106,8 +101,9 @@ function useBeerList(filter = []) {
   const isLoadingInitialData = !data && !error,
     isLoadingMore =
       isLoadingInitialData ||
-      (size > 0 && data && typeof data[size - 1] === "undefined"),
-    hasNextPage = data[data.length - 1].length;
+      (size > 0 && data && typeof data[size - 1] === "undefined");
+  if (error && !data) data = [[]];
+  const hasNextPage = data[data.length - 1].length;
 
   data = data.filter((v) => v.length).flat();
 
@@ -120,7 +116,7 @@ function useBeerList(filter = []) {
     beers: data,
     isLoadingMore,
     isLoadingInitialData,
-    isError: error,
+    error,
     size,
     setSize,
     isValidating,
