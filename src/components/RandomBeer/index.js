@@ -4,12 +4,11 @@ import "./RandomBeer.scss";
 
 export default function RandomBeer() {
   const {
-    beer: { name, image_url, description, ...rest } = {},
+    beer: { name, image_url, description } = {},
     loading,
     isValidating,
     mutate,
   } = useRandomBeer();
-  console.log({ beer: { name, image_url, description, ...rest } });
   return (
     <div className="random-beer">
       <div className="title-block">
