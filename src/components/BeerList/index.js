@@ -5,8 +5,8 @@ import ReadMoreReact from "read-more-react";
 import "./BeerList.scss";
 import { useState } from "react";
 import Textfield from "./TextField";
-import { Empty } from "antd";
-import Title from "antd/lib/typography/Title";
+import { Empty, Typography } from "antd";
+const { Title } = Typography;
 
 function BeerList() {
   const [filter, setFilter] = useState([]);

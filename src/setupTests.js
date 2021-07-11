@@ -4,6 +4,9 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import { cache } from "swr";
+import replaceAllInserter from 'string.prototype.replaceall';
+
+replaceAllInserter.shim();
 
 afterEach(() => {
   cache.clear();
