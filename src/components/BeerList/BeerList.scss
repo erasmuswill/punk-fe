@@ -12,5 +12,6 @@ div.beer-list {
 
   button[class*="rootPrimaryVariant"]:not(:disabled) {
     background-color: #1890ff;
+    text-transform: none;
   }
 }
