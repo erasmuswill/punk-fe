@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BeerDrawer should not render if no ID 1`] = `<DocumentFragment />`;
+
+exports[`BeerDrawer should render info 1`] = `<DocumentFragment />`;

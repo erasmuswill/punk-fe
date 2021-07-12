@@ -10,15 +10,13 @@ describe("BeerDrawer", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it.skip("should render info", () => {
+  it("should render info", () => {
     jest.spyOn(api, "useBeer").mockImplementation(() => ({
       beer: TEST_DATA.alc_beer,
       loading: false,
       isValidating: false,
     }));
-    const { debug } = render(<BeerDrawer id={11} />);
-    debug();
-    // getByText();
-    // expect(asFragment()).toMatchSnapshot();
+    const { asFragment } = render(<BeerDrawer id={11} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });
