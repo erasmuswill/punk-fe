@@ -19,6 +19,7 @@ function App() {
   return (
     <ShowAlcoholicContext.Provider value={showAlcoholic}>
       <div className="App">
+        <Title level={1}>Punk FE</Title>
         <div style={{ height: "30px" }}>
           <span className="alcohol-toggle">
             <label>
