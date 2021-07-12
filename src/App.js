@@ -1,7 +1,7 @@
 import "./App.scss";
 import { Suspense, useState, createContext } from "react";
 import RandomBeer from "./components/RandomBeer";
-import { PageHeader, Switch } from "antd";
+import { Divider, PageHeader, Switch } from "antd";
 import { mutate } from "swr";
 import BeerList from "./components/BeerList";
 import Title from "antd/lib/typography/Title";
@@ -31,7 +31,9 @@ function App() {
             </span>
           }
         />
+        <Divider />
         <RandomBeer />
+        <Divider />
         <BeerList />
       </div>
     </ShowAlcoholicContext.Provider>

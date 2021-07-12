@@ -2,15 +2,17 @@
 
 exports[`RandomBeer shows a random beer 1`] = `
 <DocumentFragment>
+  <h3
+    class="ant-typography"
+  >
+    I'm feeling lucky
+  </h3>
   <div
-    class="random-beer"
+    class="beer-item"
   >
     <div
-      class="title-block"
+      class="image"
     >
-      <h3>
-        Punk IPA 2007 - 2010
-      </h3>
       <img
         alt="Label for Punk IPA 2007 - 2010"
         height="100"
@@ -18,116 +20,132 @@ exports[`RandomBeer shows a random beer 1`] = `
       />
     </div>
     <div
-      class="label-block"
+      class="name"
     >
-      Our flagship beer that kick started the craft beer revolution. This is James and Martin's original take on an American IPA, subverted with punchy New Zealand hops. Layered with new world hops to create an all-out riot of grapefruit, pineapple and lychee before a spiky, mouth-puckering bitter finish.
+      <h3>
+        Punk IPA 2007 - 2010
+      </h3>
     </div>
-    <div
-      class="cta-block"
+    <span
+      class="abv"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
+      6% alcohol
+    </span>
+    <div
+      class="description"
+    >
+      <div
+        class="display-text-group"
       >
-        <span>
-          Random beer
+        <span
+          class="displayed-text"
+        >
+          Our flagship beer that kick started the craft beer revolution. This is James and Martin's original take on an American IPA, subverted with punchy New Zealand hops. Layered with new world hops to create an all-out riot of grapefruit, pineapple and lychee before a spiky, mouth-puckering bitter finish. 
         </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          More details
-        </span>
-      </button>
+      </div>
     </div>
   </div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span
+      aria-label="reload"
+      class="anticon anticon-reload"
+      role="img"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="reload"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+        />
+      </svg>
+    </span>
+    <span>
+      New random beer
+    </span>
+  </button>
 </DocumentFragment>
 `;
 
 exports[`RandomBeer shows a validation state 1`] = `
 <DocumentFragment>
+  <h3
+    class="ant-typography"
+    style="display: inline; margin-right: 8px;"
+  >
+    I'm feeling lucky
+  </h3>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span
+      aria-label="reload"
+      class="anticon anticon-reload anticon-spin"
+      disabled=""
+      role="img"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="reload"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+        />
+      </svg>
+    </span>
+    <span>
+      New random beer
+    </span>
+  </button>
   <div
-    class="random-beer"
+    class="beer-item"
   >
     <div
-      class="title-block"
+      class="image"
     >
-      <h3 />
       <img
         alt="Label for undefined"
         height="100"
       />
     </div>
     <div
-      class="label-block"
-    />
-    <div
-      class="cta-block"
+      class="name"
     >
-      <button
-        class="ant-btn ant-btn-primary ant-btn-loading"
-        type="button"
+      <h3 />
+    </div>
+    <span
+      class="abv"
+    >
+      % alcohol
+    </span>
+    <div
+      class="description"
+    >
+      <div
+        class="display-text-group"
       >
         <span
-          class="ant-btn-loading-icon"
+          class="displayed-text"
         >
-          <span
-            aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </span>
+           
         </span>
-        <span>
-          Random beer
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default ant-btn-loading"
-        type="button"
-      >
-        <span
-          class="ant-btn-loading-icon"
-        >
-          <span
-            aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </span>
-        </span>
-        <span>
-          More details
-        </span>
-      </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>

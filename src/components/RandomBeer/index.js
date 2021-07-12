@@ -12,23 +12,20 @@ export default function RandomBeer() {
   const [modalId, setModalId] = useState(null);
   return (
     <>
-      <Title level={3} style={{ display: "inline", marginRight: "8px" }}>
-        I'm feeling lucky
-      </Title>
-      <Tooltip title="Get new random beer">
-        <Button
-          icon={
-            <ReloadOutlined
-              spin={isValidating}
-              disabled={loading || isValidating}
-              onClick={() => mutate()}
-            />
-          }
-        >
-          New random beer
-        </Button>
-      </Tooltip>
+      <Title level={3}>I'm feeling lucky</Title>
       <BeerItem {...beer} setModalId={setModalId} />
+      <Button
+        type="primary"
+        icon={
+          <ReloadOutlined
+            spin={isValidating}
+            disabled={loading || isValidating}
+            onClick={() => mutate()}
+          />
+        }
+      >
+        New random beer
+      </Button>
       <BeerDrawer id={modalId} close={() => setModalId(null)} />
     </>
   );

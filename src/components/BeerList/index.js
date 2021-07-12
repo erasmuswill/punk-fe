@@ -22,7 +22,6 @@ function BeerList() {
     <>
       <Title level={3}>All beer</Title>
       <div className="beer-list-filters">
-        <Title level={4}>Filters</Title>
         <Criteria
           data={filter}
           onChange={setFilter}
@@ -101,8 +100,8 @@ function BeerList() {
               )
             }
           >
-            {beers.map((beer) => (
-              <BeerItem {...beer} setModalId={setModalId} />
+            {beers.map(({id, ...beer}) => (
+              <BeerItem {...beer} id={id} key={id} setModalId={setModalId} />
             ))}
           </InfiniteScroll>
         ) : (

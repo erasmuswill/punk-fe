@@ -7,14 +7,19 @@ import {
   Button,
   Statistic,
   Table,
+  List,
 } from "antd";
 import Title from "antd/lib/typography/Title";
 import { useState } from "react";
 import { useBeer } from "../../api";
 import "./BeerDrawer.scss";
 
-function Tooltip({children, ...props}){
-  return <Tooltip2 overlayClassName="tooltip-overlay" {...props}><span className="has-tooltip">{children}</span></Tooltip2>
+function Tooltip({ children, ...props }) {
+  return (
+    <Tooltip2 overlayClassName="tooltip-overlay" {...props}>
+      <span className="has-tooltip">{children}</span>
+    </Tooltip2>
+  );
 }
 
 function BeerDrawer({ id, close }) {
@@ -127,6 +132,11 @@ to then be boiled"
           </Tooltip>
         </Descriptions.Item>
       </Descriptions>
+      <Descriptions title="Food Pairings" />
+      <List
+        dataSource={food_pairing}
+        renderItem={(item) => <List.Item>{item}</List.Item>}
+      />
       <Descriptions title="Food Pairings">
         {food_pairing.map((v, i) => (
           <Descriptions.Item key={i}>{v}</Descriptions.Item>
