@@ -2,9 +2,9 @@ import { useBeerList } from "../../api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Criteria from "react-criteria";
 import "./BeerList.scss";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Textfield from "./TextField";
-import { Empty, Typography } from "antd";
+import { Empty, Spin, Typography } from "antd";
 import BeerDrawer from "../BeerDrawer";
 import BeerItem from "../BeerItem";
 const { Title } = Typography;
@@ -91,16 +91,9 @@ function BeerList() {
             dataLength={beers.length}
             next={loadMoreRows}
             hasMore={hasNextPage}
-            loader={<h4>Loading...</h4>}
-            endMessage={
-              beers.length > 20 && (
-                <p style={{ textAlign: "center" }}>
-                  <b>Yay! You have seen it all</b>
-                </p>
-              )
-            }
+            loader={<Spin />}
           >
-            {beers.map(({id, ...beer}) => (
+            {beers.map(({ id, ...beer }) => (
               <BeerItem {...beer} id={id} key={id} setModalId={setModalId} />
             ))}
           </InfiniteScroll>
@@ -112,4 +105,27 @@ function BeerList() {
     </>
   );
 }
-export default BeerList;
+
+const SuspensefulBeerList = () => (
+  <Suspense
+    fallback={
+      <>
+        <Title level={3}>All beer</Title>
+        <div className="beer-list-filters loading">
+          <Spin />
+        </div>
+        <div className="beer-list">
+          <BeerItem loading />
+          <BeerItem loading />
+          <BeerItem loading />
+          <BeerItem loading />
+          <BeerItem loading />
+        </div>
+      </>
+    }
+  >
+    <BeerList />
+  </Suspense>
+);
+
+export default SuspensefulBeerList;

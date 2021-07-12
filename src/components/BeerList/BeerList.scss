@@ -14,4 +14,9 @@ div.beer-list {
     background-color: #1890ff;
     text-transform: none;
   }
+
+  &.loading {
+    height: 76px;
+    text-align: center;
+  }
 }

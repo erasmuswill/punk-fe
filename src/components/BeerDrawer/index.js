@@ -9,6 +9,8 @@ import {
   Table,
   List,
 } from "antd";
+import Skeleton from "react-loading-skeleton";
+import { Suspense } from "react";
 import Title from "antd/lib/typography/Title";
 import { useState } from "react";
 import { useBeer } from "../../api";
@@ -22,9 +24,13 @@ function Tooltip({ children, ...props }) {
   );
 }
 
-function BeerDrawer({ id, close }) {
-  const [showIngredients, setShowIngredients] = useState(false);
-  const [showMethod, setShowMethod] = useState(false);
+function BeerDrawer({
+  id,
+  showIngredients,
+  setShowIngredients,
+  showMethod,
+  setShowMethod,
+}) {
   const { beer } = useBeer(id);
   if (!beer) return null;
   const {
@@ -47,25 +53,8 @@ function BeerDrawer({ id, close }) {
     brewers_tips,
   } = beer;
   return (
-    <Drawer
-      className="beer-drawer"
-      title={name}
-      width={window.innerWidth > 600 ? 520 : window.innerWidth - 40}
-      onClose={close}
-      visible={!!id && id !== 0}
-      footer={
-        <Row justify="space-around">
-          <Col>
-            <Button onClick={() => setShowIngredients(true)}>
-              Show Ingredients
-            </Button>
-          </Col>
-          <Col>
-            <Button onClick={() => setShowMethod(true)}>Show Method</Button>
-          </Col>
-        </Row>
-      }
-    >
+    <>
+      <Title level={3}>{name}</Title>
       <Title level={4}>{tagline}</Title>
       <Row justify="space-between">
         <Col>
@@ -137,11 +126,6 @@ to then be boiled"
         dataSource={food_pairing}
         renderItem={(item) => <List.Item>{item}</List.Item>}
       />
-      <Descriptions title="Food Pairings">
-        {food_pairing.map((v, i) => (
-          <Descriptions.Item key={i}>{v}</Descriptions.Item>
-        ))}
-      </Descriptions>
       <Descriptions title="Brewer's Tips"></Descriptions>
       <span>{brewers_tips}</span>
       <Drawer
@@ -236,7 +220,134 @@ to then be boiled"
           </>
         )}
       </Drawer>
+    </>
+  );
+}
+
+function SuspensefulBeerDrawer(props) {
+  const [showIngredients, setShowIngredients] = useState(false);
+  const [showMethod, setShowMethod] = useState(false);
+  return (
+    <Drawer
+      className="beer-drawer"
+      width={window.innerWidth > 600 ? 520 : window.innerWidth - 40}
+      onClose={props.close}
+      visible={!!props.id && props.id !== 0}
+      footer={
+        <Row justify="space-around">
+          <Col>
+            <Button onClick={() => setShowIngredients(true)}>
+              Show Ingredients
+            </Button>
+          </Col>
+          <Col>
+            <Button onClick={() => setShowMethod(true)}>Show Method</Button>
+          </Col>
+        </Row>
+      }
+    >
+      <Suspense
+        fallback={
+          <>
+            <Title level={3}>
+              <Skeleton />
+            </Title>
+            <Title level={4}>
+              <Skeleton />
+            </Title>
+            <Row justify="space-between">
+              <Col>
+                <Statistic loading title="ABV" />
+              </Col>
+              <Col>
+                <Statistic loading title="IBU" />
+              </Col>
+              <Col>
+                <Statistic loading title="OG" />
+              </Col>
+              <Col>
+                <Statistic loading title="First Brewed" />
+              </Col>
+            </Row>
+            <Descriptions title="Basics">
+              <Descriptions.Item span={3}>
+                Hover over the values for more details
+              </Descriptions.Item>
+              <Descriptions.Item label="Volume">
+                <Tooltip title="Amount of wort at the end of the brewing process to be fermented">
+                  <Skeleton width={60} />
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="Boil Volume">
+                <Tooltip
+                  title="Target amount of liquid to be collected through lautering and sparging
+to then be boiled"
+                >
+                  <Skeleton width={60} />
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="ABV">
+                <Tooltip title="Alcohol by Volume">
+                  <Skeleton width={60} />
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="Target FG">
+                <Tooltip title="Final Gravity; Measurement of relative density of the beer at end of fermentation">
+                  <Skeleton width={60} />{" "}
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="Target OG">
+                <Tooltip title="Original Gravity; Measurement of the relative density of the wort before fermentation">
+                  <Skeleton width={60} />{" "}
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="EBC">
+                <Tooltip title="Measurement of colour used by european brewing convention">
+                  <Skeleton width={60} />{" "}
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="SRM">
+                <Tooltip title="– Measurement of colour used by american society of brewing chemists">
+                  <Skeleton width={60} />{" "}
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="pH">
+                <Tooltip title="Power of Hydrogen; Measurement of acidity or alkalinity">
+                  <Skeleton width={60} />{" "}
+                </Tooltip>
+              </Descriptions.Item>
+              <Descriptions.Item label="Attenuation level">
+                <Tooltip title="Measurement of the percentage of sugars converted to alcohol and CO2">
+                  <Skeleton width={60} />{" "}
+                </Tooltip>
+              </Descriptions.Item>
+            </Descriptions>
+            <Descriptions title="Food Pairings" />
+            <List
+              dataSource={[1, 1]}
+              renderItem={() => (
+                <List.Item>
+                  <Skeleton width={250} />
+                </List.Item>
+              )}
+            />
+            <Descriptions title="Brewer's Tips"></Descriptions>
+            <span>
+              <Skeleton count={2} />
+            </span>
+          </>
+        }
+      >
+        <BeerDrawer
+          {...props}
+          showIngredients={showIngredients}
+          setShowIngredients={setShowIngredients}
+          showMethod={showMethod}
+          setShowMethod={setShowMethod}
+        />
+      </Suspense>
     </Drawer>
   );
 }
-export default BeerDrawer;
+
+export default SuspensefulBeerDrawer;

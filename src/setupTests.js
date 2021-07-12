@@ -8,6 +8,14 @@ import replaceAllInserter from 'string.prototype.replaceall';
 
 replaceAllInserter.shim();
 
+global.matchMedia = global.matchMedia || function() {
+  return {
+      matches : false,
+      addListener : function() {},
+      removeListener: function() {}
+  }
+}
+
 afterEach(() => {
   cache.clear();
 });

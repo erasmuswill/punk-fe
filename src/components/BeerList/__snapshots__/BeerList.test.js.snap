@@ -1056,13 +1056,6 @@ exports[`BeerList shows a list of beer 1`] = `
             </div>
           </div>
         </div>
-        <p
-          style="text-align: center;"
-        >
-          <b>
-            Yay! You have seen it all
-          </b>
-        </p>
       </div>
     </div>
   </div>
@@ -2220,13 +2213,6 @@ exports[`BeerList shows loading state 1`] = `
             </div>
           </div>
         </div>
-        <p
-          style="text-align: center;"
-        >
-          <b>
-            Yay! You have seen it all
-          </b>
-        </p>
       </div>
     </div>
   </div>

@@ -1,13 +1,13 @@
 import { Button, Typography } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRandomBeer } from "../../api";
 import BeerDrawer from "../BeerDrawer";
 import BeerItem from "../BeerItem";
 
 const { Title } = Typography;
 
-export default function RandomBeer() {
+function RandomBeer() {
   const { beer = {}, loading, isValidating, mutate } = useRandomBeer();
   const [modalId, setModalId] = useState(null);
   return (
@@ -26,3 +26,21 @@ export default function RandomBeer() {
     </>
   );
 }
+
+const SuspensefulBeerDrawer = (props) => (
+  <Suspense
+    fallback={
+      <>
+        <Title level={3}>I'm feeling lucky</Title>
+        <BeerItem loading />
+        <Button loading disabled icon={<ReloadOutlined spin />}>
+          New random beer
+        </Button>
+      </>
+    }
+  >
+    <RandomBeer {...props} />
+  </Suspense>
+);
+
+export default SuspensefulBeerDrawer;

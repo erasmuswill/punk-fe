@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Suspense, useState, createContext } from "react";
+import { useState, createContext } from "react";
 import RandomBeer from "./components/RandomBeer";
 import { Divider, PageHeader, Switch } from "antd";
 import { mutate } from "swr";
@@ -40,11 +40,5 @@ function App() {
   );
 }
 
-const SuspenseWrappedApp = (props) => (
-  <Suspense fallback={<img height="300" src="/loader-op.gif" alt="Loading" />}>
-    <App {...props} />
-  </Suspense>
-);
-
-export default SuspenseWrappedApp;
+export default App;
 export { ShowAlcoholicContext };
