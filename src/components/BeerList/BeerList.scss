@@ -3,12 +3,13 @@ div.beer-list {
   div.beer-item {
     margin-bottom: 12px;
     display: grid;
-    grid-template-columns: 1fr 8fr 80px;
-    grid-template-rows: 40px auto;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: 25px 27px auto;
     min-height: 144px;
     div.image {
       grid-row-start: 1;
-      grid-row-end: 3;
+      grid-row-end: 4;
+      min-width: 50px;
       img {
         margin: 8px auto;
         display: block;
@@ -19,8 +20,6 @@ div.beer-list {
       h3 {
         color: #1890ff;
         text-overflow: ellipsis;
-
-        /* Needed to make it work */
         overflow: hidden;
         white-space: nowrap;
       }
@@ -28,11 +27,11 @@ div.beer-list {
     div.description {
       margin: 0px 24px;
       grid-column-start: 2;
-      grid-column-end: 4;
+      grid-column-end: 3;
     }
     span.abv {
-      text-align: right;
       color: #a9a9a9;
+      margin: 4px 24px;
     }
   }
 }
