@@ -16,11 +16,11 @@ export default function RandomBeer() {
       <BeerItem {...beer} setModalId={setModalId} />
       <Button
         type="primary"
+        disabled={loading || isValidating}
+        onClick={() => mutate()}
         icon={
           <ReloadOutlined
             spin={isValidating}
-            disabled={loading || isValidating}
-            onClick={() => mutate()}
           />
         }
       >

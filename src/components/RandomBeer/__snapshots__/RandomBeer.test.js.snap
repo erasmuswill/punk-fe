@@ -53,7 +53,6 @@ exports[`RandomBeer shows a random beer 1`] = `
       aria-label="reload"
       class="anticon anticon-reload"
       role="img"
-      tabindex="-1"
     >
       <svg
         aria-hidden="true"
@@ -80,20 +79,18 @@ exports[`RandomBeer shows a validation state 1`] = `
 <DocumentFragment>
   <h3
     class="ant-typography"
-    style="display: inline; margin-right: 8px;"
   >
     I'm feeling lucky
   </h3>
   <button
     class="ant-btn ant-btn-primary"
+    disabled=""
     type="button"
   >
     <span
       aria-label="reload"
       class="anticon anticon-reload anticon-spin"
-      disabled=""
       role="img"
-      tabindex="-1"
     >
       <svg
         aria-hidden="true"
@@ -113,40 +110,5 @@ exports[`RandomBeer shows a validation state 1`] = `
       New random beer
     </span>
   </button>
-  <div
-    class="beer-item"
-  >
-    <div
-      class="image"
-    >
-      <img
-        alt="Label for undefined"
-        height="100"
-      />
-    </div>
-    <div
-      class="name"
-    >
-      <h3 />
-    </div>
-    <span
-      class="abv"
-    >
-      % alcohol
-    </span>
-    <div
-      class="description"
-    >
-      <div
-        class="display-text-group"
-      >
-        <span
-          class="displayed-text"
-        >
-           
-        </span>
-      </div>
-    </div>
-  </div>
 </DocumentFragment>
 `;

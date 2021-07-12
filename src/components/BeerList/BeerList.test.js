@@ -1,5 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import * as Criteria from "react-criteria";
+import * as BeerDrawer from "../BeerDrawer";
 import * as api from "../../api";
 import BeerList from "./";
 import TEST_DATA from "../../TEST_DATA.json";
@@ -72,5 +73,23 @@ describe("BeerList", () => {
       },
       { beer_name: "blonde" },
     ]);
+  });
+
+  it("shows beer details pane on click", () => {
+    const mockSetSize = jest.fn();
+    jest.spyOn(api, "useBeerList").mockImplementation(() => ({
+      beers: TEST_DATA.mixed_list,
+      isLoadingMore: false,
+      size: 1,
+      setSize: mockSetSize,
+      hasNextPage: false,
+    }));
+    jest.spyOn(BeerDrawer, "default").mockImplementation(({ id }) => {
+      return "BeerDrawer:" + id;
+    });
+    const { getByText } = render(<BeerList />);
+    const detailButton = getByText(TEST_DATA.mixed_list[0].name);
+    fireEvent.click(detailButton);
+    expect(getByText("BeerDrawer:" + TEST_DATA.mixed_list[0].id)).toBeTruthy();
   });
 });

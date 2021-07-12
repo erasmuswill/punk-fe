@@ -26,7 +26,9 @@ describe("RandomBeer", () => {
       mutate: mockMutate,
     }));
     const { getByText } = render(<RandomBeer />);
-    const mutateButton = getByText("Random beer").parentElement; // This matches the span inside the button, calling parentElement to get a reference to the button
+    const mutateButton = getByText("random beer", {
+      exact: false,
+    }); // This matches the span inside the button, calling parentElement to get a reference to the button
     fireEvent.click(mutateButton);
     expect(mockMutate).toHaveBeenCalledTimes(1);
   });
@@ -43,7 +45,7 @@ describe("RandomBeer", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("shows beer details button", () => {
+  it("shows beer details pane on click", () => {
     jest.spyOn(api, "useRandomBeer").mockImplementation(() => ({
       beer: TEST_DATA.alc_beer,
       loading: false,
@@ -53,7 +55,7 @@ describe("RandomBeer", () => {
       return "BeerDrawer:" + id;
     });
     const { getByText } = render(<RandomBeer />);
-    const detailButton = getByText("More details").parentElement; // This matches the span inside the button, calling parentElement to get a reference to the button
+    const detailButton = getByText(TEST_DATA.alc_beer.name);
     fireEvent.click(detailButton);
     expect(getByText("BeerDrawer:" + TEST_DATA.alc_beer.id)).toBeTruthy();
   });

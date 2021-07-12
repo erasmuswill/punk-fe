@@ -1,7 +1,9 @@
 import ReadMoreReact from "read-more-react";
 import "./BeerItem.scss";
 
-function BeerItem({ abv, name, description, image_url, id,setModalId }) {
+function BeerItem({ abv, name, description, image_url, id, setModalId }) {
+  if (!abv || !name || !description || !image_url || !id || !setModalId)
+    return null;
   return (
     <div className="beer-item" key={id} onClick={() => setModalId(id)}>
       <div className="image">
