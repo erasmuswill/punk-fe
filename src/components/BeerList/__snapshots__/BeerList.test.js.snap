@@ -5,11 +5,11 @@ exports[`BeerList shows a list of beer 1`] = `
   <div
     class="beer-list-filters"
   >
-    <h2
+    <h3
       class="ant-typography"
     >
       Filters
-    </h2>
+    </h3>
     <div>
       <button>
         Add filter
@@ -1074,11 +1074,11 @@ exports[`BeerList shows empty state 1`] = `
   <div
     class="beer-list-filters"
   >
-    <h2
+    <h3
       class="ant-typography"
     >
       Filters
-    </h2>
+    </h3>
     <div>
       <button>
         Add filter
@@ -1169,11 +1169,11 @@ exports[`BeerList shows loading state 1`] = `
   <div
     class="beer-list-filters"
   >
-    <h2
+    <h3
       class="ant-typography"
     >
       Filters
-    </h2>
+    </h3>
     <div>
       <button>
         Add filter
