@@ -1,4 +1,4 @@
-import { Button, Tooltip, Typography } from "antd";
+import { Button, Typography } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useRandomBeer } from "../../api";
@@ -18,11 +18,7 @@ export default function RandomBeer() {
         type="primary"
         disabled={loading || isValidating}
         onClick={() => mutate()}
-        icon={
-          <ReloadOutlined
-            spin={isValidating}
-          />
-        }
+        icon={<ReloadOutlined spin={isValidating} />}
       >
         New random beer
       </Button>
