@@ -11,4 +11,11 @@
     margin-bottom: 0px;
     margin-top: 24px;
   }
+
+  span.has-tooltip {
+    transition: color 50ms ease-in-out;
+    &:hover {
+      color: #1890ff;
+    }
+  }
 }

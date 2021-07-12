@@ -13,8 +13,8 @@ import { useState } from "react";
 import { useBeer } from "../../api";
 import "./BeerDrawer.scss";
 
-function Tooltip(props){
-  return <Tooltip2 overlayClassName="tooltip-overlay" {...props}/>
+function Tooltip({children, ...props}){
+  return <Tooltip2 overlayClassName="tooltip-overlay" {...props}><span className="has-tooltip">{children}</span></Tooltip2>
 }
 
 function BeerDrawer({ id, close }) {
