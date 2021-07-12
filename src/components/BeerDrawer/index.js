@@ -11,6 +11,7 @@ import {
 import Title from "antd/lib/typography/Title";
 import { useState } from "react";
 import { useBeer } from "../../api";
+import "./BeerDrawer.scss";
 
 function BeerDrawer({ id, close }) {
   const [showIngredients, setShowIngredients] = useState(false);
@@ -38,6 +39,7 @@ function BeerDrawer({ id, close }) {
   } = beer;
   return (
     <Drawer
+      className="beer-drawer"
       title={name}
       width={window.innerWidth > 600 ? 520 : window.innerWidth - 40}
       onClose={close}
@@ -71,6 +73,9 @@ function BeerDrawer({ id, close }) {
         </Col>
       </Row>
       <Descriptions title="Basics">
+        <Descriptions.Item span={3}>
+          Hover over the values for more details
+        </Descriptions.Item>
         <Descriptions.Item label="Volume">
           <Tooltip title="Amount of wort at the end of the brewing process to be fermented">
             {volume.value} {volume.unit}
@@ -119,7 +124,7 @@ to then be boiled"
         </Descriptions.Item>
       </Descriptions>
       <Descriptions title="Food Pairings">
-        {food_pairing.map((v,i) => (
+        {food_pairing.map((v, i) => (
           <Descriptions.Item key={i}>{v}</Descriptions.Item>
         ))}
       </Descriptions>
