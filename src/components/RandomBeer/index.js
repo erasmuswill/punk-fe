@@ -21,7 +21,7 @@ export default function RandomBeer() {
       <div className="label-block">{description}</div>
       <div className="cta-block">
         <Button
-          type="default"
+          type="primary"
           loading={loading || isValidating}
           onClick={() => mutate()}
         >

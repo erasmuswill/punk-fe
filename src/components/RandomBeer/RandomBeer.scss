@@ -2,6 +2,7 @@ div.random-beer {
   min-height: 212px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
   align-items: center;
@@ -25,6 +26,9 @@ div.random-beer {
     flex-basis: 20%;
     button {
       width: 150px;
+    }
+    button:first-of-type {
+      margin-bottom: 16px;
     }
   }
 }

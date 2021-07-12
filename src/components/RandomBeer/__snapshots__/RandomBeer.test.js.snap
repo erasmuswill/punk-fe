@@ -26,7 +26,7 @@ exports[`RandomBeer shows a random beer 1`] = `
       class="cta-block"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-primary"
         type="button"
       >
         <span>
@@ -67,7 +67,7 @@ exports[`RandomBeer shows a validation state 1`] = `
       class="cta-block"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-loading"
+        class="ant-btn ant-btn-primary ant-btn-loading"
         type="button"
       >
         <span
