@@ -39,7 +39,7 @@ function BeerDrawer({ id, close }) {
   return (
     <Drawer
       title={name}
-      width={520}
+      width={window.innerWidth > 600 ? 520 : window.innerWidth - 40}
       onClose={close}
       visible={!!id && id !== 0}
       footer={
