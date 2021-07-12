@@ -18,6 +18,11 @@ div.beer-list {
       margin: 0px 24px;
       h3 {
         color: #1890ff;
+        text-overflow: ellipsis;
+
+        /* Needed to make it work */
+        overflow: hidden;
+        white-space: nowrap;
       }
     }
     div.description {
@@ -34,9 +39,10 @@ div.beer-list {
 .beer-list-filters {
   margin: 8px;
   padding: 8px 16px;
-  box-shadow: 1px 1px 6px 0px rgba(150, 170, 180, 0.5);
-  border-radius: 12px;
   > div > div {
     box-shadow: none;
+  }
+  button[class*="rootPrimaryVariant"]:not(:disabled) {
+    background-color: #1890ff;
   }
 }
