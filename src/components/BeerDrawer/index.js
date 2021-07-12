@@ -1,7 +1,7 @@
 import {
   Descriptions,
   Drawer,
-  Tooltip,
+  Tooltip as Tooltip2,
   Row,
   Col,
   Button,
@@ -12,6 +12,10 @@ import Title from "antd/lib/typography/Title";
 import { useState } from "react";
 import { useBeer } from "../../api";
 import "./BeerDrawer.scss";
+
+function Tooltip(props){
+  return <Tooltip2 overlayClassName="tooltip-overlay" {...props}/>
+}
 
 function BeerDrawer({ id, close }) {
   const [showIngredients, setShowIngredients] = useState(false);
