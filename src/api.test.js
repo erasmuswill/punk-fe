@@ -55,6 +55,20 @@ describe("useBeer", () => {
     expect(result.beer).toBe(mockBeer[0]);
   });
 
+  test("should not call API if ID not present", () => {
+    jest.spyOn(SWR, "default").mockImplementation((url, config) => ({
+      data: undefined,
+      error: undefined,
+    }));
+    const {
+      result: { current: result },
+    } = renderHook(() => useBeer());
+    expect(SWR.default).toBeCalledTimes(1);
+    expect(SWR.default).toBeCalledWith(null, expect.anything());
+    expect(result.error).toBeUndefined();
+    expect(result.beer).toBeUndefined();
+  });
+
   test("should pass error on API failure", () => {
     jest.spyOn(SWR, "default").mockImplementation((url, config) => ({
       data: undefined,

@@ -1,7 +1,8 @@
 import { fireEvent, render } from "@testing-library/react";
 import * as api from "../../api";
 import RandomBeer from "./";
-import TEST_DATA from '../../TEST_DATA.json'
+import * as BeerDrawer from "../BeerDrawer";
+import TEST_DATA from "../../TEST_DATA.json";
 
 describe("RandomBeer", () => {
   it("shows a random beer", () => {
@@ -40,5 +41,20 @@ describe("RandomBeer", () => {
     }));
     const { asFragment } = render(<RandomBeer />);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("shows beer details button", () => {
+    jest.spyOn(api, "useRandomBeer").mockImplementation(() => ({
+      beer: TEST_DATA.alc_beer,
+      loading: false,
+      isValidating: false,
+    }));
+    jest.spyOn(BeerDrawer, "default").mockImplementation(({ id }) => {
+      return "BeerDrawer:" + id;
+    });
+    const { getByText } = render(<RandomBeer />);
+    const detailButton = getByText("More details").parentElement; // This matches the span inside the button, calling parentElement to get a reference to the button
+    fireEvent.click(detailButton);
+    expect(getByText("BeerDrawer:" + TEST_DATA.alc_beer.id)).toBeTruthy();
   });
 });

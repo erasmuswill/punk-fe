@@ -6,9 +6,11 @@ import "./BeerList.scss";
 import { useState } from "react";
 import Textfield from "./TextField";
 import { Empty, Typography } from "antd";
+import BeerDrawer from "../BeerDrawer";
 const { Title } = Typography;
 
 function BeerList() {
+  const [modalId, setModalId] = useState(null);
   const [filter, setFilter] = useState([]);
   const { beers, isLoadingMore, size, setSize, hasNextPage } = useBeerList(
     filter.map(({ type, value }) => ({
@@ -99,7 +101,11 @@ function BeerList() {
             }
           >
             {beers.map(({ abv, name, description, image_url, id }) => (
-              <div className="beer-item" key={id}>
+              <div
+                className="beer-item"
+                key={id}
+                onClick={() => setModalId(id)}
+              >
                 <div className="image">
                   <img height="100" src={image_url} alt={`Label for ${name}`} />
                 </div>
@@ -122,6 +128,7 @@ function BeerList() {
           <Empty />
         )}
       </div>
+      <BeerDrawer id={modalId} close={() => setModalId(null)} />
     </>
   );
 }

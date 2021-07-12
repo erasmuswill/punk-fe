@@ -20,6 +20,12 @@
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
+  "devDependencies": {
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.1",
+    "react-test-renderer": "17.0.2",
+    "string.prototype.replaceall": "^1.0.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -44,10 +50,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/react-hooks": "^7.0.1",
-    "react-test-renderer": "17.0.2",
-    "string.prototype.replaceall": "^1.0.5"
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$"
+    ]
   }
 }
