@@ -1,41 +1,35 @@
-import { Button } from "antd";
+import { Button, Tooltip, Typography } from "antd";
+import { ReloadOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useRandomBeer } from "../../api";
 import BeerDrawer from "../BeerDrawer";
-import "./RandomBeer.scss";
+import BeerItem from "../BeerItem";
+
+const { Title } = Typography;
 
 export default function RandomBeer() {
-  const {
-    beer: { name, image_url, description, id } = {},
-    loading,
-    isValidating,
-    mutate,
-  } = useRandomBeer();
+  const { beer = {}, loading, isValidating, mutate } = useRandomBeer();
   const [modalId, setModalId] = useState(null);
   return (
-    <div className="random-beer">
-      <div className="title-block">
-        <h3>{name}</h3>
-        <img height="100" src={image_url} alt={`Label for ${name}`} />
-      </div>
-      <div className="label-block">{description}</div>
-      <div className="cta-block">
+    <>
+      <Title level={3} style={{ display: "inline", marginRight: "8px" }}>
+        I'm feeling lucky
+      </Title>
+      <Tooltip title="Get new random beer">
         <Button
-          type="primary"
-          loading={loading || isValidating}
-          onClick={() => mutate()}
+          icon={
+            <ReloadOutlined
+              spin={isValidating}
+              disabled={loading || isValidating}
+              onClick={() => mutate()}
+            />
+          }
         >
-          Random beer
+          New random beer
         </Button>
-        <Button
-          type="default"
-          loading={loading || isValidating}
-          onClick={() => setModalId(id)}
-        >
-          More details
-        </Button>
-      </div>
+      </Tooltip>
+      <BeerItem {...beer} setModalId={setModalId} />
       <BeerDrawer id={modalId} close={() => setModalId(null)} />
-    </div>
+    </>
   );
 }

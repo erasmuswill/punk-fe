@@ -20,6 +20,7 @@ function App() {
     <ShowAlcoholicContext.Provider value={showAlcoholic}>
       <div className="App">
         <PageHeader
+          ghost={false}
           title={<Title>Punk FE</Title>}
           extra={
             <span className="alcohol-toggle">
@@ -30,9 +31,7 @@ function App() {
             </span>
           }
         />
-        <Title level={2}>I'm feeling lucky</Title>
         <RandomBeer />
-        <Title level={2}>All beer</Title>
         <BeerList />
       </div>
     </ShowAlcoholicContext.Provider>

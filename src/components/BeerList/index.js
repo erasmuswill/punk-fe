@@ -1,12 +1,12 @@
 import { useBeerList } from "../../api";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Criteria from "react-criteria";
-import ReadMoreReact from "read-more-react";
 import "./BeerList.scss";
 import { useState } from "react";
 import Textfield from "./TextField";
 import { Empty, Typography } from "antd";
 import BeerDrawer from "../BeerDrawer";
+import BeerItem from "../BeerItem";
 const { Title } = Typography;
 
 function BeerList() {
@@ -20,8 +20,9 @@ function BeerList() {
   const loadMoreRows = isLoadingMore ? () => {} : () => setSize(size + 1);
   return (
     <>
+      <Title level={3}>All beer</Title>
       <div className="beer-list-filters">
-        <Title level={3}>Filters</Title>
+        <Title level={4}>Filters</Title>
         <Criteria
           data={filter}
           onChange={setFilter}
@@ -100,28 +101,8 @@ function BeerList() {
               )
             }
           >
-            {beers.map(({ abv, name, description, image_url, id }) => (
-              <div
-                className="beer-item"
-                key={id}
-                onClick={() => setModalId(id)}
-              >
-                <div className="image">
-                  <img height="100" src={image_url} alt={`Label for ${name}`} />
-                </div>
-                <div className="name">
-                  <h3>{name}</h3>
-                </div>
-                <span className="abv">{abv}% alcohol</span>
-                <div className="description">
-                  <ReadMoreReact
-                    text={description}
-                    min={300}
-                    ideal={310}
-                    max={320}
-                  />
-                </div>
-              </div>
+            {beers.map((beer) => (
+              <BeerItem {...beer} setModalId={setModalId} />
             ))}
           </InfiniteScroll>
         ) : (

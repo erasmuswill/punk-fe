@@ -2,7 +2,20 @@
 
 div.App {
   margin: 10px auto;
+  margin-top: 0;
   max-width: 900px;
+
+  .ant-page-header {
+    background-color: #5aadf9;
+    color: #fff;
+    padding: 16px;
+    z-index: 20;
+    box-shadow: 1px 1px 6px 0px rgba(150, 170, 180, 0.5);
+  }
+
+  .ant-page-header h1.ant-typography {
+    color: #fff;
+  }
 }
 
 span.alcohol-toggle {
