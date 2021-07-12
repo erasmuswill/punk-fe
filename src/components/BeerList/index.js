@@ -21,7 +21,7 @@ function BeerList() {
   return (
     <>
       <div className="beer-list-filters">
-        <Title level={2}>Filters</Title>
+        <Title level={3}>Filters</Title>
         <Criteria
           data={filter}
           onChange={setFilter}

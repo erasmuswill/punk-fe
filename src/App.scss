@@ -6,9 +6,11 @@ div.App {
 }
 
 span.alcohol-toggle {
-  float: right;
-  label button {
-    margin-right: 8px;
+  label {
+    margin-right: 12px;
+    button {
+      margin-right: 8px;
+    }
   }
 }
 

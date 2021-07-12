@@ -1,7 +1,7 @@
 import "./App.scss";
 import { Suspense, useState, createContext } from "react";
 import RandomBeer from "./components/RandomBeer";
-import { Switch } from "antd";
+import { PageHeader, Switch } from "antd";
 import { mutate } from "swr";
 import BeerList from "./components/BeerList";
 import Title from "antd/lib/typography/Title";
@@ -19,17 +19,20 @@ function App() {
   return (
     <ShowAlcoholicContext.Provider value={showAlcoholic}>
       <div className="App">
-        <Title level={1}>Punk FE</Title>
-        <div style={{ height: "30px" }}>
-          <span className="alcohol-toggle">
-            <label>
-              <Switch defaultChecked onChange={onAlcoholChange} />
-              Show alcoholic beers
-            </label>
-          </span>
-        </div>
+        <PageHeader
+          title={<Title>Punk FE</Title>}
+          extra={
+            <span className="alcohol-toggle">
+              <label>
+                <Switch defaultChecked onChange={onAlcoholChange} />
+                Show alcoholic beers
+              </label>
+            </span>
+          }
+        />
+        <Title level={2}>I'm feeling lucky</Title>
         <RandomBeer />
-        <Title>All beer</Title>
+        <Title level={2}>All beer</Title>
         <BeerList />
       </div>
     </ShowAlcoholicContext.Provider>
