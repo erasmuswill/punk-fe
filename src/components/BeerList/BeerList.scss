@@ -27,6 +27,13 @@ div.beer-list {
       text-transform: none;
     }
 
+    div[role="dialog"] {
+      background: whitesmoke;
+      div[class*="header"] {
+        background: #5aadf9;
+      }
+    }
+
     &.loading {
       height: 76px;
       text-align: center;
