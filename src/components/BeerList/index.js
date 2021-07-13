@@ -20,70 +20,72 @@ function BeerList() {
   const loadMoreRows = isLoadingMore ? () => {} : () => setSize(size + 1);
   return (
     <>
-      <Title level={3}>All beer</Title>
-      <div className="beer-list-filters">
-        <Criteria
-          data={filter}
-          onChange={setFilter}
-          criteria={{
-            abv_gt: {
-              label: "ABV Greater Than",
-              addable: !filter.filter(({ type }) => type === "abv_gt").length,
-              component: {
-                component: Textfield,
-                props: {
-                  min: 0.1,
-                  max: 100,
-                  type: "number",
-                  autoFocus: true,
-                  placeholder: "Enter maximum ABV",
+      <div className="all-beer-header">
+        <Title level={3}>All beer</Title>
+        <div className="beer-list-filters">
+          <Criteria
+            data={filter}
+            onChange={setFilter}
+            criteria={{
+              abv_gt: {
+                label: "ABV Greater Than",
+                addable: !filter.filter(({ type }) => type === "abv_gt").length,
+                component: {
+                  component: Textfield,
+                  props: {
+                    min: 0.1,
+                    max: 100,
+                    type: "number",
+                    autoFocus: true,
+                    placeholder: "Enter maximum ABV",
+                  },
                 },
               },
-            },
-            abv_lt: {
-              label: "ABV Lower Than",
-              addable: !filter.filter(({ type }) => type === "abv_lt").length,
-              component: {
-                component: Textfield,
-                props: {
-                  min: 0.1,
-                  max: 100,
-                  type: "number",
-                  autoFocus: true,
-                  placeholder: "Enter minimum ABV",
+              abv_lt: {
+                label: "ABV Lower Than",
+                addable: !filter.filter(({ type }) => type === "abv_lt").length,
+                component: {
+                  component: Textfield,
+                  props: {
+                    min: 0.1,
+                    max: 100,
+                    type: "number",
+                    autoFocus: true,
+                    placeholder: "Enter minimum ABV",
+                  },
                 },
               },
-            },
-            brewed_before: {
-              label: "Brewed before",
-              addable: !filter.filter(({ type }) => type === "brewed_before")
-                .length,
-              component: {
-                component: Textfield,
-                addable: false,
-                props: {
-                  type: "date",
-                  picker: "month",
-                  autoFocus: true,
-                  placeholder: "Enter maximum first brew date",
+              brewed_before: {
+                label: "Brewed before",
+                addable: !filter.filter(({ type }) => type === "brewed_before")
+                  .length,
+                component: {
+                  component: Textfield,
+                  addable: false,
+                  props: {
+                    type: "date",
+                    picker: "month",
+                    autoFocus: true,
+                    placeholder: "Enter maximum first brew date",
+                  },
                 },
               },
-            },
-            beer_name: {
-              label: "Beer Name",
-              addable: !filter.filter(({ type }) => type === "beer_name")
-                .length,
-              component: {
-                component: Textfield,
-                addable: false,
-                props: {
-                  autoFocus: true,
-                  placeholder: "Enter a term to find beer",
+              beer_name: {
+                label: "Beer Name",
+                addable: !filter.filter(({ type }) => type === "beer_name")
+                  .length,
+                component: {
+                  component: Textfield,
+                  addable: false,
+                  props: {
+                    autoFocus: true,
+                    placeholder: "Enter a term to find beer",
+                  },
                 },
               },
-            },
-          }}
-        />
+            }}
+          />
+        </div>
       </div>
       <div className="beer-list">
         {beers && beers.length ? (

@@ -2,21 +2,34 @@ div.beer-list {
   padding: 16px;
 }
 
-.beer-list-filters {
-  margin: 8px;
-  padding: 8px 16px;
+.all-beer-header {
+  display: flex;
+  justify-content: space-between;
 
-  > div > div {
-    box-shadow: none;
+  h3.ant-typography {
+    display: inline-block;
   }
 
-  button[class*="rootPrimaryVariant"]:not(:disabled) {
-    background-color: #1890ff;
-    text-transform: none;
-  }
+  .beer-list-filters {
+    margin: 8px;
+    padding: 8px 16px;
+    align-self: flex-end;
+    display: flex;
 
-  &.loading {
-    height: 76px;
-    text-align: center;
+    > div > div {
+      justify-content: flex-end;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    button[class*="rootPrimaryVariant"]:not(:disabled) {
+      background-color: #1890ff;
+      text-transform: none;
+    }
+
+    &.loading {
+      height: 76px;
+      text-align: center;
+    }
   }
 }

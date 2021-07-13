@@ -2,18 +2,22 @@
 
 exports[`BeerList shows a list of beer 1`] = `
 <DocumentFragment>
-  <h3
-    class="ant-typography"
-  >
-    All beer
-  </h3>
   <div
-    class="beer-list-filters"
+    class="all-beer-header"
   >
-    <div>
-      <button>
-        Add filter
-      </button>
+    <h3
+      class="ant-typography"
+    >
+      All beer
+    </h3>
+    <div
+      class="beer-list-filters"
+    >
+      <div>
+        <button>
+          Add filter
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -1064,18 +1068,22 @@ exports[`BeerList shows a list of beer 1`] = `
 
 exports[`BeerList shows empty state 1`] = `
 <DocumentFragment>
-  <h3
-    class="ant-typography"
-  >
-    All beer
-  </h3>
   <div
-    class="beer-list-filters"
+    class="all-beer-header"
   >
-    <div>
-      <button>
-        Add filter
-      </button>
+    <h3
+      class="ant-typography"
+    >
+      All beer
+    </h3>
+    <div
+      class="beer-list-filters"
+    >
+      <div>
+        <button>
+          Add filter
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -1159,18 +1167,22 @@ exports[`BeerList shows empty state 1`] = `
 
 exports[`BeerList shows loading state 1`] = `
 <DocumentFragment>
-  <h3
-    class="ant-typography"
-  >
-    All beer
-  </h3>
   <div
-    class="beer-list-filters"
+    class="all-beer-header"
   >
-    <div>
-      <button>
-        Add filter
-      </button>
+    <h3
+      class="ant-typography"
+    >
+      All beer
+    </h3>
+    <div
+      class="beer-list-filters"
+    >
+      <div>
+        <button>
+          Add filter
+        </button>
+      </div>
     </div>
   </div>
   <div
